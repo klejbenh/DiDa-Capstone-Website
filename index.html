@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Flow Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">FLU</span>
+          <div>
+            <p class="eyebrow">Our Backend System Preview</p>
+            <h1>DJ Flow Engine</h1>
+          </div>
+        </div>
+        <a class="ghost-button spotify-button" href="https://accounts.spotify.com/login" target="_blank" rel="noreferrer">Login to Spotify</a>
+      </nav>
+
+      <div class="hero-grid">
+        <section class="hero-copy">
+          <p class="pill">Machine Learning Playlist Sequencing</p>
+          <h2>Designing smooth, DJ-style transitions at your fingertips!</h2>
+          <p class="intro">
+            Changing this later but as of right now this frontend presents our project as a backend first system where audio features go in,
+            transition scores are learned, and optimized song paths come out as continuous playlists.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button" id="scrollPipeline" type="button">Explore Pipeline</button>
+          </div>
+        </section>
+
+        <aside class="hero-card">
+          <p class="card-label">Current Focus</p>
+          <div class="focus-item">
+            <span>Feature Extraction</span>
+            <strong>Tempo, key, energy, MFCCs</strong>
+          </div>
+          <div class="focus-item">
+            <span>Ranking Model</span>
+            <strong>Still unclear. We have to meet with Dr. Hallenbeck to figure out the model, but it will most likely be supervised, unsupervised, or self-learning.</strong>
+          </div>
+          <div class="focus-item">
+            <span>Sequence Optimization</span>
+            <strong>Weighted graph path selection</strong>
+          </div>
+          <div class="focus-item">
+            <span>Output</span>
+            <strong>Plethora of seamlessly mixed playlists that sound like live-set playlists</strong>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel" id="pipeline">
+        <div class="panel-heading">
+          <p class="eyebrow">System Pipeline</p>
+          <h3>How the backend thinks like a DJ</h3>
+        </div>
+
+        <div class="pipeline-grid" id="pipelineGrid">
+          <article class="pipeline-step active">
+            <span class="step-number">01</span>
+            <h4>Audio Feature Capture</h4>
+            <p>Extract BPM, key, loudness, energy, and spectral signatures from each track.</p>
+          </article>
+          <article class="pipeline-step">
+            <span class="step-number">02</span>
+            <h4>Transition Feature Engineering</h4>
+            <p>Measure tempo gaps, harmonic compatibility, and energy movement between pairs.</p>
+          </article>
+          <article class="pipeline-step">
+            <span class="step-number">03</span>
+            <h4>Pairwise Ranking Model</h4>
+            <p>Train a boosting model to score how naturally one song should follow another.</p>
+          </article>
+          <article class="pipeline-step">
+            <span class="step-number">04</span>
+            <h4>Graph-Based Sequencing</h4>
+            <p>Build a weighted song graph and search for a path with the strongest overall flow.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="dual-layout">
+        <article class="panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Backend Modules</p>
+            <h3>Core responsibilities</h3>
+          </div>
+
+          <div class="module-list" id="moduleList"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Sample Run</p>
+            <h3>Transition scoring demo</h3>
+          </div>
+
+          <div class="console-card">
+            <div class="console-header">
+              <span class="dot red"></span>
+              <span class="dot amber"></span>
+              <span class="dot green"></span>
+              <p>playlist_engine.log</p>
+            </div>
+            <pre id="consoleOutput"></pre>
+          </div>
+          <div class="console-actions">
+            <button class="secondary-button" id="shuffleScenario" type="button">Load Sample Scenario</button>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel metrics-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Backend Connection Plan</p>
+          <h3>How this frontend will connect to the music-analysis backend</h3>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="metric-label">Step 1</span>
+            <strong>Spotify login</strong>
+            <p>Users log in through Spotify so the platform can request permission to read playlist and track information tied to their account.</p>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Step 2</span>
+            <strong>Playlist data retrieval</strong>
+            <p>Once the user signs in, Spotify provides playlist and track information through its API. The frontend collects the selected playlist ID, track IDs, and related metadata, then sends that structured data to the backend through an API request so the analysis pipeline can begin.</p>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Step 3</span>
+            <strong>Backend analysis</strong>
+            <p>The backend uses the playlist data as input for feature extraction, transition scoring, and sequencing logic to analyze how songs should flow together.</p>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Step 4</span>
+            <strong>Generated sequence</strong>
+            <p>The optimized song order is returned to the frontend, where users can view a smarter playlist built from their Spotify music data.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
