@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Flow Engine | Backend Connection Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="integration">
+  <div class="page-shell">
+    <header class="hero compact-hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">FLU</span>
+          <div>
+            <p class="eyebrow">Backend Connection Plan</p>
+            <h1>How the frontend talks to the analysis engine</h1>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <label class="page-nav" for="pageSelect">
+            <span>Navigate pages</span>
+            <select id="pageSelect" aria-label="Navigate site pages">
+              <option value="index.html">Home</option>
+              <option value="pipeline.html">System Pipeline</option>
+              <option value="modules.html">Backend Modules</option>
+              <option value="demo.html">Sample Run</option>
+              <option value="integration.html">Backend Connection Plan</option>
+              <option value="user-profiles.html">User Profiles</option>
+              <option value="team.html">Team and Focus</option>
+            </select>
+          </label>
+          <a class="ghost-button" href="index.html">Back Home</a>
+        </div>
+      </nav>
+
+      <p class="section-intro">
+        This view focuses on the Spotify-to-backend handoff so the integration story can be presented clearly on its own.
+      </p>
+    </header>
+
+    <main>
+      <section class="panel metrics-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Backend Connection Plan</p>
+          <h3>How this frontend will connect to the music-analysis backend</h3>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="metric-label">Step 1</span>
+            <strong>Spotify login</strong>
+            <p>Users log in through Spotify so the platform can request permission to read playlist and track information tied to their account.</p>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Step 2</span>
+            <strong>Playlist data retrieval</strong>
+            <p>Once the user signs in, Spotify provides playlist and track information through its API. The frontend collects the selected playlist ID, track IDs, and related metadata, then sends that structured data to the backend through an API request so the analysis pipeline can begin.</p>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Step 3</span>
+            <strong>Backend analysis</strong>
+            <p>The backend uses the playlist data as input for feature extraction, transition scoring, and sequencing logic to analyze how songs should flow together.</p>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Step 4</span>
+            <strong>Generated sequence</strong>
+            <p>The optimized song order is returned to the frontend, where users can view a smarter playlist built from their Spotify music data.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

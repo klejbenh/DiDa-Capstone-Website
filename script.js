@@ -12,9 +12,10 @@ const modules = [
     tags: ["Pairwise Ranking", "Feature Engineering", "Compatibility"]
   },
   {
-    name: "Unsupervised/ Supervised Learning Model CNN",
-    description: "?",
-    tags: ["To be...", "... determined"]
+    name: "Boosted Ranking Model",
+    description:
+      "The final model approach is still being finalized, but this module will turn engineered transition features into ranked recommendations for track-to-track flow.",
+    tags: ["XGBoost", "LightGBM", "Inference API"]
   },
   {
     name: "Playlist Path Optimizer",
@@ -53,16 +54,39 @@ const scenarios = [
   ]
 ];
 
+const teamProfiles = [
+  {
+    name: "Klejben Hysenbelli",
+    initials: "KH",
+    bio: "PLACEHOLDER"
+  },
+  {
+    name: "James Giuffre",
+    initials: "JG",
+    bio: "PLACEHOLDER"
+  },
+  {
+    name: "Brendan Connolly",
+    initials: "BC",
+    bio: "PLACEHOLDER"
+  }
+];
+
 const moduleList = document.getElementById("moduleList");
 const consoleOutput = document.getElementById("consoleOutput");
 const pipelineSteps = Array.from(document.querySelectorAll(".pipeline-step"));
-const scrollPipeline = document.getElementById("scrollPipeline");
 const shuffleScenario = document.getElementById("shuffleScenario");
+const pageSelect = document.getElementById("pageSelect");
+const teamGrid = document.getElementById("teamGrid");
 
 let scenarioIndex = 0;
 let activeStep = 0;
 
 function renderModules() {
+  if (!moduleList) {
+    return;
+  }
+
   moduleList.innerHTML = modules
     .map(
       (module) => `
@@ -79,27 +103,69 @@ function renderModules() {
 }
 
 function renderScenario(index) {
+  if (!consoleOutput) {
+    return;
+  }
+
   consoleOutput.textContent = scenarios[index].join("\n");
 }
 
 function cycleSteps() {
+  if (!pipelineSteps.length) {
+    return;
+  }
+
   pipelineSteps.forEach((step, index) => {
     step.classList.toggle("active", index === activeStep);
   });
+
   activeStep = (activeStep + 1) % pipelineSteps.length;
+}
+
+function renderTeamFocus() {
+  if (!teamGrid) {
+    return;
+  }
+
+  teamGrid.innerHTML = teamProfiles
+    .map(
+      (item) => `
+        <article class="team-card profile-card">
+          <div class="profile-photo" aria-hidden="true">${item.initials}</div>
+          <strong>${item.name}</strong>
+          <p>${item.bio}</p>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function initializePageSelect() {
+  if (!pageSelect) {
+    return;
+  }
+
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  pageSelect.value = currentPage;
+
+  pageSelect.addEventListener("change", (event) => {
+    window.location.href = event.target.value;
+  });
 }
 
 renderModules();
 renderScenario(scenarioIndex);
-cycleSteps();
+renderTeamFocus();
+initializePageSelect();
 
-setInterval(cycleSteps, 2000);
+if (pipelineSteps.length) {
+  cycleSteps();
+  setInterval(cycleSteps, 1800);
+}
 
-scrollPipeline.addEventListener("click", () => {
-  document.getElementById("pipeline").scrollIntoView({ behavior: "smooth" });
-});
-
-shuffleScenario.addEventListener("click", () => {
-  scenarioIndex = (scenarioIndex + 1) % scenarios.length;
-  renderScenario(scenarioIndex);
-});
+if (shuffleScenario) {
+  shuffleScenario.addEventListener("click", () => {
+    scenarioIndex = (scenarioIndex + 1) % scenarios.length;
+    renderScenario(scenarioIndex);
+  });
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Flow Engine | Sample Run</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="demo">
+  <div class="page-shell">
+    <header class="hero compact-hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">FLU</span>
+          <div>
+            <p class="eyebrow">Sample Run</p>
+            <h1>Transition scoring demo</h1>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <label class="page-nav" for="pageSelect">
+            <span>Navigate pages</span>
+            <select id="pageSelect" aria-label="Navigate site pages">
+              <option value="index.html">Home</option>
+              <option value="pipeline.html">System Pipeline</option>
+              <option value="modules.html">Backend Modules</option>
+              <option value="demo.html">Sample Run</option>
+              <option value="integration.html">Backend Connection Plan</option>
+              <option value="user-profiles.html">User Profiles</option>
+              <option value="team.html">Team and Focus</option>
+            </select>
+          </label>
+          <a class="ghost-button" href="index.html">Back Home</a>
+        </div>
+      </nav>
+
+      <p class="section-intro">
+        This page keeps the sample console run isolated so viewers can focus on sequence generation output without competing page content.
+      </p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Sample Run</p>
+          <h3>Transition scoring demo</h3>
+        </div>
+
+        <div class="console-card">
+          <div class="console-header">
+            <span class="dot red"></span>
+            <span class="dot amber"></span>
+            <span class="dot green"></span>
+            <p>playlist_engine.log</p>
+          </div>
+          <pre id="consoleOutput"></pre>
+        </div>
+        <div class="console-actions">
+          <button class="secondary-button" id="shuffleScenario" type="button">Load Sample Scenario</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

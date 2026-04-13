@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Flow Engine | Team and Focus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="team">
+  <div class="page-shell">
+    <header class="hero compact-hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">FLU</span>
+          <div>
+            <p class="eyebrow">Team and Focus</p>
+            <h1>Who we are and what we are building toward</h1>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <label class="page-nav" for="pageSelect">
+            <span>Navigate pages</span>
+            <select id="pageSelect" aria-label="Navigate site pages">
+              <option value="index.html">Home</option>
+              <option value="pipeline.html">System Pipeline</option>
+              <option value="modules.html">Backend Modules</option>
+              <option value="demo.html">Sample Run</option>
+              <option value="integration.html">Backend Connection Plan</option>
+              <option value="user-profiles.html">User Profiles</option>
+              <option value="team.html">Team and Focus</option>
+            </select>
+          </label>
+          <a class="ghost-button" href="index.html">Back Home</a>
+        </div>
+      </nav>
+
+      <p class="section-intro">
+        This page brings together the team's purpose, project priorities, and the bigger goal behind the sequencing engine.
+      </p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Team Profiles</p>
+          <h3>Who we are and what motivates us</h3>
+        </div>
+
+        <div class="team-grid profile-grid" id="teamGrid"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <p class="eyebrow">Shared Focus</p>
+          <h3>What brings the team together</h3>
+        </div>
+
+        <div class="focus-stack">
+          <div class="focus-item">
+            <span>Project Goal</span>
+            <strong>Build a backend-first system that learns strong transitions and outputs playlists with DJ-like flow.</strong>
+          </div>
+          <div class="focus-item">
+            <span>Technical Focus</span>
+            <strong>Sharpen feature extraction, define the model approach, and make graph-based sequencing reliable.</strong>
+          </div>
+          <div class="focus-item">
+            <span>Team Motivation</span>
+            <strong>Create a music experience that feels intelligent, smooth, and exciting for listeners while giving the team a strong machine learning project to grow through.</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

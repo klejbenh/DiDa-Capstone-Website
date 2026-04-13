@@ -29,8 +29,12 @@ body {
     linear-gradient(180deg, #f9f2e7 0%, #f2eadb 45%, #efe6d8 100%);
 }
 
-button {
+button,
+select {
   font: inherit;
+}
+
+button {
   cursor: pointer;
 }
 
@@ -60,6 +64,10 @@ a {
   position: relative;
 }
 
+.compact-hero {
+  padding-bottom: 20px;
+}
+
 .hero::after {
   content: "";
   position: absolute;
@@ -74,7 +82,9 @@ a {
 .hero-grid,
 .dual-layout,
 .metrics-grid,
-.pipeline-grid {
+.pipeline-grid,
+.overview-grid,
+.team-grid {
   display: grid;
   gap: 20px;
 }
@@ -83,6 +93,37 @@ a {
   grid-template-columns: 1fr auto;
   align-items: center;
   margin-bottom: 28px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.page-nav {
+  display: grid;
+  gap: 6px;
+  min-width: 220px;
+}
+
+.page-nav span {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.page-nav select {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
 }
 
 .brand {
@@ -146,10 +187,18 @@ h4 {
   align-items: stretch;
 }
 
+.intro,
+.section-intro {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .intro {
   max-width: 60ch;
-  line-height: 1.65;
-  color: var(--muted);
+}
+
+.section-intro {
+  max-width: 72ch;
 }
 
 .pill {
@@ -215,6 +264,11 @@ h4 {
   gap: 14px;
 }
 
+.focus-stack {
+  display: grid;
+  gap: 14px;
+}
+
 .focus-item {
   padding: 16px;
   border-radius: 18px;
@@ -225,7 +279,9 @@ h4 {
 .focus-item span,
 .metric p,
 .pipeline-step p,
-.module-card p {
+.module-card p,
+.overview-card p,
+.team-card p {
   color: var(--muted);
   line-height: 1.55;
 }
@@ -248,9 +304,23 @@ main {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.overview-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.team-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.profile-grid {
+  align-items: stretch;
+}
+
 .pipeline-step,
 .module-card,
-.metric {
+.metric,
+.overview-card,
+.team-card {
   border-radius: 22px;
   padding: 18px;
   border: 1px solid var(--line);
@@ -262,6 +332,15 @@ main {
   transform: translateY(-4px);
   background: rgba(217, 108, 63, 0.12);
   border-color: rgba(217, 108, 63, 0.28);
+}
+
+.pipeline-step:hover,
+.module-card:hover,
+.metric:hover,
+.overview-card:hover,
+.team-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(217, 108, 63, 0.24);
 }
 
 .step-number {
@@ -280,9 +359,52 @@ main {
   gap: 14px;
 }
 
-.module-card strong {
+.module-card strong,
+.team-card strong {
   display: block;
   margin-bottom: 8px;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.profile-photo {
+  width: 112px;
+  height: 112px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(217, 108, 63, 0.22), rgba(19, 42, 58, 0.18));
+  border: 2px dashed rgba(19, 42, 58, 0.22);
+  color: var(--accent-dark);
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.profile-role {
+  font-weight: 500;
+  color: var(--accent-dark);
+}
+
+.profile-motivation {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.profile-motivation span {
+  display: block;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  color: var(--muted);
 }
 
 .tag-row {
@@ -304,7 +426,7 @@ main {
   overflow: hidden;
   background: #101c25;
   color: #dde8ee;
-  border: 2px solid rgba(19, 42, 58, 0.12);
+  border: 1px solid rgba(19, 42, 58, 0.12);
 }
 
 .console-actions {
@@ -355,7 +477,9 @@ pre {
   .hero-grid,
   .dual-layout,
   .pipeline-grid,
-  .metrics-grid {
+  .metrics-grid,
+  .overview-grid,
+  .team-grid {
     grid-template-columns: 1fr;
   }
 
@@ -378,6 +502,14 @@ pre {
 
   .topbar {
     grid-template-columns: 1fr;
+  }
+
+  .nav-actions {
+    justify-content: stretch;
+  }
+
+  .page-nav {
+    min-width: 100%;
   }
 
   .hero-actions {
