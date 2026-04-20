@@ -74,13 +74,10 @@ const teamProfiles = [
 
 const moduleList = document.getElementById("moduleList");
 const consoleOutput = document.getElementById("consoleOutput");
-const pipelineSteps = Array.from(document.querySelectorAll(".pipeline-step"));
 const shuffleScenario = document.getElementById("shuffleScenario");
-const pageSelect = document.getElementById("pageSelect");
 const teamGrid = document.getElementById("teamGrid");
 
 let scenarioIndex = 0;
-let activeStep = 0;
 
 function renderModules() {
   if (!moduleList) {
@@ -110,18 +107,6 @@ function renderScenario(index) {
   consoleOutput.textContent = scenarios[index].join("\n");
 }
 
-function cycleSteps() {
-  if (!pipelineSteps.length) {
-    return;
-  }
-
-  pipelineSteps.forEach((step, index) => {
-    step.classList.toggle("active", index === activeStep);
-  });
-
-  activeStep = (activeStep + 1) % pipelineSteps.length;
-}
-
 function renderTeamFocus() {
   if (!teamGrid) {
     return;
@@ -140,28 +125,9 @@ function renderTeamFocus() {
     .join("");
 }
 
-function initializePageSelect() {
-  if (!pageSelect) {
-    return;
-  }
-
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
-  pageSelect.value = currentPage;
-
-  pageSelect.addEventListener("change", (event) => {
-    window.location.href = event.target.value;
-  });
-}
-
 renderModules();
 renderScenario(scenarioIndex);
 renderTeamFocus();
-initializePageSelect();
-
-if (pipelineSteps.length) {
-  cycleSteps();
-  setInterval(cycleSteps, 1800);
-}
 
 if (shuffleScenario) {
   shuffleScenario.addEventListener("click", () => {

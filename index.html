@@ -22,91 +22,58 @@
         </div>
 
         <div class="nav-actions">
-          <label class="page-nav" for="pageSelect">
-            <span>Navigate pages</span>
-            <select id="pageSelect" aria-label="Navigate site pages">
-              <option value="index.html">Home</option>
-              <option value="pipeline.html">System Pipeline</option>
-              <option value="modules.html">Backend Modules</option>
-              <option value="demo.html">Sample Run</option>
-              <option value="integration.html">Backend Connection Plan</option>
-              <option value="user-profiles.html">User Profiles</option>
-              <option value="team.html">Team and Focus</option>
-            </select>
-          </label>
+          <div class="page-tabs" aria-label="Site navigation">
+            <a href="index.html">Home</a>
+            <a href="pipeline.html">Pipeline</a>
+            <a href="modules.html">Modules</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="integration.html">Backend</a>
+            <a href="user-profiles.html">Users</a>
+            <a href="team.html">Team</a>
+          </div>
           <a class="ghost-button spotify-button" href="https://accounts.spotify.com/login" target="_blank" rel="noreferrer">Login to Spotify</a>
         </div>
       </nav>
 
-      <div class="hero-grid">
-        <section class="hero-copy">
-          <p class="pill">Machine Learning Playlist Sequencing</p>
-          <h2>Designing smooth, DJ-style transitions at your fingertips!</h2>
-          <p class="intro">
-            This frontend now breaks the project into focused pages so visitors can move through the system one part at a time:
-            pipeline logic, backend modules, sample runs, connection planning, and the team focus behind the work.
-          </p>
-          <div class="hero-actions">
-            <a class="primary-button" href="pipeline.html">Explore Pipeline</a>
-            <a class="secondary-button" href="user-profiles.html">View User Profiles</a>
-            <a class="secondary-button" href="team.html">Meet the Team Focus</a>
-          </div>
-        </section>
+      <section class="hero-copy">
+        <p class="pill">How To Use The Website</p>
+        <h2>Start here before running the playlist analysis.</h2>
+        <p class="intro">
+          To use this project, you should go to the <strong>Analysis</strong> page. That page is where the sample backend analysis is shown, including how playlist data would be processed, scored, and reordered.
+        </p>
+      </section>
 
-        <aside class="hero-card">
-          <p class="card-label">Current Focus</p>
-          <div class="focus-item">
-            <span>Feature Extraction</span>
-            <strong>Tempo, key, energy, MFCCs</strong>
-          </div>
-          <div class="focus-item">
-            <span>Ranking Model</span>
-            <strong>Model direction will be finalized with Dr. Hallenbeck after reviewing whether supervised, unsupervised, or self-learning fits best.</strong>
-          </div>
-          <div class="focus-item">
-            <span>Sequence Optimization</span>
-            <strong>Weighted graph path selection</strong>
-          </div>
-          <div class="focus-item">
-            <span>Output</span>
-            <strong>Seamlessly mixed playlists that feel closer to live-set experiences</strong>
-          </div>
-        </aside>
+      <div class="metrics-grid hero-instructions">
+        <div class="metric">
+          <span class="metric-label">Step 1</span>
+          <strong>Log in with Spotify</strong>
+          <p>Use the Spotify login button at the top of the page so the system can access playlist and track data connected to your account.</p>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Step 2</span>
+          <strong>Go to Analysis</strong>
+          <p>Click the <strong>Analysis</strong> page in the top navigation bar. This is the page users must visit to run or view the playlist analysis workflow.</p>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Step 3</span>
+          <strong>Run the analysis</strong>
+          <p>The backend extracts audio features, scores possible transitions, and builds an optimized song order based on flow and compatibility.</p>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Step 4</span>
+          <strong>Review the sequence</strong>
+          <p>Review the returned playlist order and use the other pages to understand the pipeline, modules, users, backend connection, and team focus.</p>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a class="primary-button" href="analysis.html">Go to Analysis</a>
+        <a class="secondary-button" href="#site-overview">Explore Overview</a>
       </div>
     </header>
 
     <main>
-      <section class="panel">
-        <div class="panel-heading">
-          <p class="eyebrow">How To Use The Tool</p>
-          <h3>Step-by-step instructions</h3>
-        </div>
-
-        <div class="metrics-grid">
-          <div class="metric">
-            <span class="metric-label">Step 1</span>
-            <strong>Log in with Spotify</strong>
-            <p>Use the Spotify login button at the top of the page so the system can access playlist and track data connected to your account.</p>
-          </div>
-          <div class="metric">
-            <span class="metric-label">Step 2</span>
-            <strong>Select a playlist</strong>
-            <p>Choose the playlist you want analyzed so the frontend can send the relevant track IDs and metadata to the backend.</p>
-          </div>
-          <div class="metric">
-            <span class="metric-label">Step 3</span>
-            <strong>Run the analysis</strong>
-            <p>The backend extracts audio features, scores possible transitions, and builds an optimized song order based on flow and compatibility.</p>
-          </div>
-          <div class="metric">
-            <span class="metric-label">Step 4</span>
-            <strong>Review the generated sequence</strong>
-            <p>Look through the returned playlist order and use the other pages to understand the pipeline, modules, sample output, user profiles, and team focus behind the result.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel">
+      <section class="panel" id="site-overview">
         <div class="panel-heading">
           <p class="eyebrow">Site Overview</p>
           <h3>Choose a section and dive deeper</h3>
@@ -123,10 +90,10 @@
             <h4>Backend Modules</h4>
             <p>Review the core backend services and their responsibilities.</p>
           </a>
-          <a class="overview-card" href="demo.html">
+          <a class="overview-card" href="analysis.html">
             <span class="step-number">03</span>
-            <h4>Sample Run</h4>
-            <p>Load example analysis logs and watch the sequencing story unfold.</p>
+            <h4>Analysis</h4>
+            <p>Go here to view the playlist analysis workflow and sample backend output.</p>
           </a>
           <a class="overview-card" href="integration.html">
             <span class="step-number">04</span>

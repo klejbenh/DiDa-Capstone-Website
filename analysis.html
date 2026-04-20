@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DJ Flow Engine | System Pipeline</title>
+  <title>DJ Flow Engine | Analysis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="pipeline">
+<body data-page="analysis">
   <div class="page-shell">
     <header class="hero compact-hero">
       <nav class="topbar">
         <div class="brand">
           <span class="brand-mark">FLU</span>
           <div>
-            <p class="eyebrow">System Pipeline</p>
-            <h1>How the backend thinks like a DJ</h1>
+            <p class="eyebrow">Analysis</p>
+            <h1>Playlist transition analysis</h1>
           </div>
         </div>
 
@@ -36,38 +36,28 @@
       </nav>
 
       <p class="section-intro">
-        This page isolates the core sequencing pipeline so it is easier to explain each backend phase without stacking every box onto one screen.
+        This page is where users go to run or view the playlist analysis workflow, including sample transition scoring output from the backend.
       </p>
     </header>
 
     <main>
       <section class="panel">
         <div class="panel-heading">
-          <p class="eyebrow">System Pipeline</p>
-          <h3>From track analysis to playlist flow</h3>
+          <p class="eyebrow">Analysis</p>
+          <h3>Transition scoring analysis</h3>
         </div>
 
-        <div class="pipeline-grid" id="pipelineGrid">
-          <article class="pipeline-step active">
-            <span class="step-number">01</span>
-            <h4>Audio Feature Capture</h4>
-            <p>Extract BPM, key, loudness, energy, and spectral signatures from each track.</p>
-          </article>
-          <article class="pipeline-step">
-            <span class="step-number">02</span>
-            <h4>Transition Feature Engineering</h4>
-            <p>Measure tempo gaps, harmonic compatibility, and energy movement between pairs.</p>
-          </article>
-          <article class="pipeline-step">
-            <span class="step-number">03</span>
-            <h4>Pairwise Ranking Model</h4>
-            <p>Train a boosting model to score how naturally one song should follow another.</p>
-          </article>
-          <article class="pipeline-step">
-            <span class="step-number">04</span>
-            <h4>Graph-Based Sequencing</h4>
-            <p>Build a weighted song graph and search for a path with the strongest overall flow.</p>
-          </article>
+        <div class="console-card">
+          <div class="console-header">
+            <span class="dot red"></span>
+            <span class="dot amber"></span>
+            <span class="dot green"></span>
+            <p>playlist_engine.log</p>
+          </div>
+          <pre id="consoleOutput"></pre>
+        </div>
+        <div class="console-actions">
+          <button class="secondary-button" id="shuffleScenario" type="button">Load Sample Scenario</button>
         </div>
       </section>
     </main>

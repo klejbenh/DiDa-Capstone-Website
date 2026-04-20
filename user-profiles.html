@@ -23,19 +23,16 @@
         </div>
 
         <div class="nav-actions">
-          <label class="page-nav" for="pageSelect">
-            <span>Navigate pages</span>
-            <select id="pageSelect" aria-label="Navigate site pages">
-              <option value="index.html">Home</option>
-              <option value="pipeline.html">System Pipeline</option>
-              <option value="modules.html">Backend Modules</option>
-              <option value="demo.html">Sample Run</option>
-              <option value="integration.html">Backend Connection Plan</option>
-              <option value="user-profiles.html">User Profiles</option>
-              <option value="team.html">Team and Focus</option>
-            </select>
-          </label>
-          <a class="ghost-button" href="index.html">Back Home</a>
+          <div class="page-tabs" aria-label="Site navigation">
+            <a href="index.html">Home</a>
+            <a href="pipeline.html">Pipeline</a>
+            <a href="modules.html">Modules</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="integration.html">Backend</a>
+            <a href="user-profiles.html">Users</a>
+            <a href="team.html">Team</a>
+          </div>
+          <a class="ghost-button spotify-button" href="https://accounts.spotify.com/login" target="_blank" rel="noreferrer">Login to Spotify</a>
         </div>
       </nav>
 
@@ -95,25 +92,24 @@
         <div class="detail-block">
           <span class="label">Role of the user</span>
           <p>
-            A casual listener who wants playlists to feel seamless, uninterrupted,
-            and enjoyable without needing DJ knowledge or manual reordering.
+            A casual music listener who is not trying to DJ, but wants the app to turn an ordinary playlist into a smoother background listening experience.
           </p>
         </div>
         <div class="detail-block">
           <span class="label">Goals of the user</span>
           <ul>
-            <li>Enjoy a more natural listening experience with fewer abrupt transitions.</li>
-            <li>Get playlists that match the mood and flow they want for everyday listening.</li>
-            <li>Trust the system to arrange songs in a way that feels smooth automatically.</li>
+            <li>Keep music playing smoothly while studying, driving, working out, or relaxing.</li>
+            <li>Avoid jarring song changes without needing to understand BPM, key, or DJ techniques.</li>
+            <li>Get a playlist order that matches a mood or activity instead of a performance-style set.</li>
           </ul>
         </div>
         <div class="detail-block">
           <span class="label">Tasks of the user for the app</span>
           <ul>
-            <li>Log in with Spotify and select a favorite playlist or group of tracks.</li>
-            <li>Let the frontend pass that playlist data to the backend for analysis.</li>
-            <li>Receive an optimized playlist order designed for continuous listening.</li>
-            <li>Play the reordered sequence for workouts, studying, driving, or daily music sessions.</li>
+            <li>Log in with Spotify and choose a playlist based on the situation or mood.</li>
+            <li>Select a listening goal such as focus, workout, chill, or road trip.</li>
+            <li>Let the backend reorder the tracks for comfort, consistency, and fewer abrupt shifts.</li>
+            <li>Listen to the updated sequence without needing to review technical transition details.</li>
           </ul>
         </div>
       </article>
